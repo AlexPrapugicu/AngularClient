@@ -1,1 +1,7 @@
-<p>shopping-list works!</p>
+<mat-list>
+  <div mat-subheader>Ingredients</div>
+  <mat-list-item *ngFor="let ingredient of ingredients">
+    <mat-icon mat-list-icon>insert_emoticon</mat-icon>
+    <div mat-line>{{ingredient.name}} ({{ingredient.amount}})</div>
+  </mat-list-item>
+</mat-list>
