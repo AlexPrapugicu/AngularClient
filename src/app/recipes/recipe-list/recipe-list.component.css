@@ -1,3 +1,7 @@
+.listWrapper{
+  display: flex;
+  flex-direction: row;
+}
 .example-card {
   max-width: 250px;
 }

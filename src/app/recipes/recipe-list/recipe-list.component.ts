@@ -9,7 +9,9 @@ import {Recipe} from '../recipe.model';
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
     new Recipe('Firstone', 'I am tasty', 'https://material.angular.io/assets/img/examples/shiba1.jpg'),
-    // new Recipe('Firstone', 'I am tasty', 'https://material.angular.io/assets/img/examples/shiba1.jpg'),
+    new Recipe('Firstone', 'I am tasty', 'https://material.angular.io/assets/img/examples/shiba1.jpg'),
+    new Recipe('Firstone', 'I am tasty', 'https://material.angular.io/assets/img/examples/shiba1.jpg'),
+    new Recipe('Firstone', 'I am tasty', 'https://material.angular.io/assets/img/examples/shiba1.jpg'),
   ];
 
   constructor() {

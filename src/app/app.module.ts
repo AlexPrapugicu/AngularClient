@@ -19,6 +19,9 @@ import { MatListModule } from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import { RecipesPopularComponent } from './recipes/recipes-popular/recipes-popular.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { RecipesSeasonalComponent } from './recipes/recipes-seasonal/recipes-seasonal.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     ShoppingListComponent,
     ShoppingEditComponent,
     MainNavComponent,
-    RecipesPopularComponent
+    RecipesPopularComponent,
+    RecipesSeasonalComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
