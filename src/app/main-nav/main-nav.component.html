@@ -24,19 +24,28 @@
       </button>
       <span>PadClient</span>
     </mat-toolbar>
-    <div class="wrapper">
+    <div class="wrapper" *ngIf="thefeature === 'recipe'">
       <hr>
-      <app-recipes-popular></app-recipes-popular>
-      <hr>
-      <app-recipe-list *ngIf="thefeature === 'recipe'"></app-recipe-list>
-      <hr>
-      <app-recipes-seasonal></app-recipes-seasonal>
-      <hr>
-      <app-shopping-list *ngIf="thefeature !== 'recipe'"></app-shopping-list>
+      <app-recipes></app-recipes>
       <hr>
       <app-footer></app-footer>
-      <!-- Add Content Here -->
     </div>
-
+    <div class="wrapper" *ngIf="thefeature === 'shopping-list'">
+      <hr>
+      <app-shopping-list></app-shopping-list>
+      <hr>
+      <app-footer></app-footer>
+    </div>
+<!--    <div class="wrapper" *ngIf="thefeature !== 'recipe'&& thefeature !== 'shopping-list'">-->
+<!--      <hr>-->
+<!--      <app-recipes-popular></app-recipes-popular>-->
+<!--      <hr>-->
+<!--      <hr>-->
+<!--      <app-recipes-seasonal></app-recipes-seasonal>-->
+<!--      <hr>-->
+<!--      <hr>-->
+<!--      <app-footer></app-footer>-->
+<!--      &lt;!&ndash; Add Content Here &ndash;&gt;-->
+<!--    </div>-->
   </mat-sidenav-content>
 </mat-sidenav-container>

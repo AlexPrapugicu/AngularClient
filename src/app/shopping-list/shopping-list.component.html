@@ -1,4 +1,7 @@
+<app-shopping-edit
+  (ingredientAdded)="onIngredientAdded($event)"></app-shopping-edit>
 <mat-list>
+  <hr>
   <div mat-subheader>Ingredients</div>
   <mat-list-item *ngFor="let ingredient of ingredients">
     <mat-icon mat-list-icon>insert_emoticon</mat-icon>

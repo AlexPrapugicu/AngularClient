@@ -22,6 +22,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { RecipesSeasonalComponent } from './recipes/recipes-seasonal/recipes-seasonal.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { RecipeDetailedComponent } from './recipes/recipe-detailed/recipe-detailed.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { HeaderComponent } from './header/header.component';
     RecipesPopularComponent,
     RecipesSeasonalComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    RecipeDetailedComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { HeaderComponent } from './header/header.component';
     MatIconModule,
     MatListModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
