@@ -1,9 +1,4 @@
 <div class="row">
     <app-recipe-list></app-recipe-list>
-    <app-recipe-detailed
-      *ngIf="selectedRecipe; else infoText"
-      [recipe]="selectedRecipe"></app-recipe-detailed>
-    <ng-template #infoText>
-      <p>Please select something!</p>
-    </ng-template>
+   <router-outlet></router-outlet>
 </div>

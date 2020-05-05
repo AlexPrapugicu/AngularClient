@@ -28,6 +28,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {DropdownDirective} from './shared/dropdown.directive';
 import {ShoppingListService} from './shopping-list/shopping-list.service';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.compon
     RecipeDetailedComponent,
     DropdownDirective,
     RecipeStartComponent,
+    RecipeEditComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

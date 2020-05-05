@@ -40,10 +40,16 @@ export class RecipeService {
         new Ingredient('Egg', 2),
       ]),
   ];
-  constructor(private slService: ShoppingListService) {}
+
+  constructor(private slService: ShoppingListService) {
+  }
 
   getRecipes() {
     return this.recipes.slice();
+  }
+
+  getRecipe(index: number) {
+    return this.recipes[index];
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {

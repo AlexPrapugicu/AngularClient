@@ -1,7 +1,8 @@
-<a
-   (click)="onSelected()">
+<a>
   <div class="card" style="width:400px">
     <img
+      routerLinkActive="active"
+      [routerLink]="[index]"
       style="cursor:pointer;"
       class="card-img-top"
       [src]="recipe.imagePath"
@@ -10,12 +11,11 @@
       <h4 class="card-title">{{recipe.name}}</h4>
       <p class="card-text">{{recipe.description}}</p>
       <div class="social">
-        <a class="btn btn-primary">See Profile</a>
+        <a class="btn btn-primary">Edit</a>
         <a class="fa fa-facebook"></a>
         <a class="fa fa-twitter"></a>
         <a class="fa fa-instagram"></a>
       </div>
     </div>
   </div>
-
 </a>

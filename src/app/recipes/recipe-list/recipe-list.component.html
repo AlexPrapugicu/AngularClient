@@ -1,6 +1,9 @@
+<button mat-fab color="accent" (click)="onNewRecipe()">Accent</button>
+<hr>
 <div class="wrapperList">
-  <app-recipe-item *ngFor="let recipeElement of recipes"
-                   [recipe]=recipeElement>
+  <app-recipe-item *ngFor="let recipeElement of recipes,let i = index"
+                   [recipe]=recipeElement
+                   [index]="i">
   </app-recipe-item>
 </div>
 
