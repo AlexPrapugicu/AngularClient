@@ -30,6 +30,7 @@ import {ShoppingListService} from './shopping-list/shopping-list.service';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import { HomeComponent } from './home/home.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { HomeComponent } from './home/home.component';
     MatGridListModule,
     MatFormFieldModule,
     MatSelectModule,
+    FormsModule,
   ],
   providers: [ShoppingListService],
   bootstrap: [AppComponent]

@@ -2,7 +2,10 @@
 <mat-list>
   <hr>
   <div mat-subheader>Ingredients</div>
-  <mat-list-item *ngFor="let ingredient of ingredients">
+  <mat-list-item
+    *ngFor="let ingredient of ingredients, let i = index"
+    (click)="onEditItem(i)"
+  >
     <mat-icon mat-list-icon>insert_emoticon</mat-icon>
     <div mat-line>{{ingredient.name}} ({{ingredient.amount}})</div>
   </mat-list-item>
