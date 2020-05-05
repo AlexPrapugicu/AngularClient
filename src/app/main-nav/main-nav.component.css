@@ -11,12 +11,56 @@
   background: inherit;
 }
 
+mat-toolbar-row {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
-.wrapper{
+.wrapper {
   margin: 20px;
+}
+
+input {
+  font-size: large;
+  background-color: inherit;
+  border: none;
+  border-bottom: 2px solid slategray;
+}
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+.fancyLine {
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+}
+
+.fancy {
+  text-align: center;
+}
+
+.account {
+  position: relative;
+}
+
+.mat-select {
+  padding: 0;
+  left: 0;
+  top: 0;
+  position: absolute;
+  z-index: 10;
 }

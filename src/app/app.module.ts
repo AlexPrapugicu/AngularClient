@@ -24,6 +24,10 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { RecipeDetailedComponent } from './recipes/recipe-detailed/recipe-detailed.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {DropdownDirective} from './shared/dropdown.directive';
+import {ShoppingListService} from './shopping-list/shopping-list.service';
+import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     RecipesSeasonalComponent,
     FooterComponent,
     HeaderComponent,
-    RecipeDetailedComponent
+    RecipeDetailedComponent,
+    DropdownDirective,
+    RecipeStartComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +58,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatListModule,
     MatCardModule,
     MatGridListModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule,
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

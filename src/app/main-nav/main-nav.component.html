@@ -7,13 +7,13 @@
       <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Food_logo.jpg" width="50px" height="50px">
     </mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#" (click)="onSelect('recipe')">Recipes</a>
-      <a mat-list-item href="#" (click)="onSelect('shopping-list')">Shopping List</a>
-      <a mat-list-item href="#" (click)="onSelect('account')">Account</a>
+      <a mat-list-item routerLinkActive="active" routerLink="/home">Home</a>
+      <a mat-list-item routerLinkActive="active" routerLink="/recipes">Recipes</a>
+      <a mat-list-item routerLinkActive="active" routerLink="/shopping-list">Shopping List</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar>
+    <mat-toolbar-row>
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -22,30 +22,73 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>PadClient</span>
-    </mat-toolbar>
-    <div class="wrapper" *ngIf="thefeature === 'recipe'">
+      <input matInput placeholder="Ex. Pizza" value="">
+      <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
+      <span class="example-spacer"></span>
+
+
+      <div class="dropdown">
+        <button class="btn" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item">Action</a>
+          <a class="dropdown-item">Another action</a>
+          <a class="dropdown-item">Something else here</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+          <mat-icon class="example-icon " aria-hidden="false" aria-label="Example person icon">person</mat-icon>
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item">Log In</a>
+          <a class="dropdown-item">Register</a>
+        </div>
+      </div>
+
+
+    </mat-toolbar-row>
+    <div class="fancyLine">
       <hr>
-      <app-recipes></app-recipes>
+      <div class="fancy">
+        <img
+          src="https://pluspng.com/img-png/food-png-food-salad-image-2962-428.png"
+          alt="Site Logo"
+          height="100px"
+          width="100px">
+      </div>
       <hr>
-      <app-footer></app-footer>
     </div>
-    <div class="wrapper" *ngIf="thefeature === 'shopping-list'">
-      <hr>
-      <app-shopping-list></app-shopping-list>
-      <hr>
-      <app-footer></app-footer>
+    <hr>
+    <div class="wrapper">
+      <!--  <div class="page-wrap" *ngIf="thefeature === 'recipe'">-->
+      <!--          <hr>-->
+      <!--          <app-recipes></app-recipes>-->
+      <!--          <hr>-->
+      <!--          <app-footer></app-footer>-->
+      <!--        </div>-->
+      <!--        <div class="wrapper" *ngIf="thefeature === 'shopping-list'">-->
+      <!--          <hr>-->
+      <!--          <app-shopping-list></app-shopping-list>-->
+      <!--          <hr>-->
+      <!--          <app-footer></app-footer>-->
+      <!--        </div>-->
+      <!--        <div class="wrapper" *ngIf="thefeature === 'home'">-->
+      <!--          <hr>-->
+      <!--          <app-recipes-popular></app-recipes-popular>-->
+      <!--          <hr>-->
+      <!--          <hr>-->
+      <!--          <app-recipes-seasonal></app-recipes-seasonal>-->
+      <!--          <hr>-->
+      <!--          <hr>-->
+      <!--          <app-footer></app-footer>-->
+      <!--          &lt;!&ndash; Add Content Here &ndash;&gt;-->
+      <!--  </div>-->
+      <router-outlet></router-outlet>
     </div>
-<!--    <div class="wrapper" *ngIf="thefeature !== 'recipe'&& thefeature !== 'shopping-list'">-->
-<!--      <hr>-->
-<!--      <app-recipes-popular></app-recipes-popular>-->
-<!--      <hr>-->
-<!--      <hr>-->
-<!--      <app-recipes-seasonal></app-recipes-seasonal>-->
-<!--      <hr>-->
-<!--      <hr>-->
-<!--      <app-footer></app-footer>-->
-<!--      &lt;!&ndash; Add Content Here &ndash;&gt;-->
-<!--    </div>-->
   </mat-sidenav-content>
 </mat-sidenav-container>
