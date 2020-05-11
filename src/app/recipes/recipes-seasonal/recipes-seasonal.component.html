@@ -1,12 +1,17 @@
-<mat-grid-list cols="8" rows="4" rowHeight="100px" [gutterSize]="'10px'">
+<mat-grid-list cols="8" rows="8" rowHeight="100px" [gutterSize]="'10px'">
   <mat-grid-tile
+    class="rounded-circle"
     *ngFor="let tile of tiles"
     [colspan]="tile.cols"
-    [rowspan]="tile.rows"
-    [style.background]="tile.color">
+    [rowspan]="tile.rows">
     <img
+      class="img-fluid rounded-circle"
       [src] = "tile.imagePath"
       alt = "food">
-    {{tile.text}}
+<!--    <div class="card-img-overlay">-->
+<!--      <h5 class="card-title">Card title</h5>-->
+<!--      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--      <p class="card-text">Last updated 3 mins ago</p>-->
+<!--    </div>-->
   </mat-grid-tile>
 </mat-grid-list>

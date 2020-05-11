@@ -1,12 +1,17 @@
-<mat-grid-list cols="4" rows="4" rowHeight="100px" [gutterSize]="'10px'">
+<mat-grid-list
+  cols="4"
+  rows="4"
+  rowHeight="100px"
+  rowWidth="100px"
+  [gutterSize]="'20px'">
   <mat-grid-tile
+    class="border"
     *ngFor="let tile of tiles"
     [colspan]="tile.cols"
-    [rowspan]="tile.rows"
-    [style.background]="tile.color">
+    [rowspan]="tile.rows">
     <img
+      class="img-fluid rounded"
       [src] = "tile.imagePath"
       alt = "food">
-    {{tile.text}}
   </mat-grid-tile>
 </mat-grid-list>

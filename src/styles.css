@@ -2,5 +2,5 @@
 @import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 
-html, body { height: 100%; }
+html, body { height: 100%;   color: lightpink;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

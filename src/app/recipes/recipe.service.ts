@@ -2,14 +2,17 @@ import {Recipe} from './recipe.model';
 import {Injectable} from '@angular/core';
 import {Ingredient} from '../shared/ingredient.model';
 import {ShoppingListService} from '../shopping-list/shopping-list.service';
+import {Subject} from 'rxjs';
 
 @Injectable()
 export class RecipeService {
+  recipesChanged = new Subject<Recipe[]>();
+
   private recipes: Recipe[] = [
     new Recipe(
       'Firstone',
       'I am tasty',
-      'https://material.angular.io/assets/img/examples/shiba1.jpg',
+      'https://cdn.loveandlemons.com/wp-content/uploads/2020/03/pantry-recipes-2.jpg',
       [
         new Ingredient('Chocolate', 2),
         new Ingredient('Cream', 2),
@@ -17,31 +20,14 @@ export class RecipeService {
     new Recipe(
       'Blackberries',
       'I am tasty',
-      'https://images.theconversation.com/files/319375/original/file-20200309-118956-1cqvm6j.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop',
+      'https://www.gimmesomeoven.com/wp-content/uploads/2014/10/The-Best-Chicken-Enchiladas-Recipe-1-1.jpg',
       [
         new Ingredient('Buns', 2),
         new Ingredient('Fries', 2),
       ]),
-    new Recipe(
-      'IceCream',
-      'I am tasty',
-      'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg',
-      [
-        new Ingredient('Tomatoes', 2),
-        new Ingredient('Potato', 2),
-      ]),
-    new Recipe(
-      'Mr Paw',
-      'I am tasty',
-      'https://www.washingtonpost.com/resizer/uwlkeOwC_3JqSUXeH8ZP81cHx3I=/arc-anglerfish-washpost-prod-washpost/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg',
-      [
-        new Ingredient('Carrot', 2),
-        new Ingredient('Egg', 2),
-      ]),
   ];
 
-  constructor(private slService: ShoppingListService) {
-  }
+  constructor(private slService: ShoppingListService) {}
 
   getRecipes() {
     return this.recipes.slice();
@@ -53,5 +39,20 @@ export class RecipeService {
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.slService.addIngredients(ingredients);
+  }
+
+  addRecipe(recipe: Recipe) {
+    this.recipes.push(recipe);
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipesChanged.next(this.recipes.slice());
+  }
+
+  deleteRecipe(index: number) {
+    this.recipes.splice(index, 1);
+    this.recipesChanged.next(this.recipes.slice());
   }
 }
