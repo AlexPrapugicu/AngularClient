@@ -6,11 +6,13 @@
           <div class="col-xs-12">
             <button type="submit"
                     class="mat-raised-button btn btn-success"
-            [disabled]="!recipeForm.valid">Save</button>
+                    [disabled]="!recipeForm.valid">Save
+            </button>
             <button
               type="submit"
               class="mat-raised-button btn btn-success"
-            (click)="onCancel()">Cancel</button>
+              (click)="onCancel()">Cancel
+            </button>
           </div>
         </div>
         <div class="row">
@@ -34,7 +36,7 @@
                 id="imagePath"
                 formControlName="imagePath"
                 class="form-control"
-              #imagePath>
+                #imagePath>
             </div>
           </div>
         </div>
@@ -60,9 +62,9 @@
           <div class="col-xs-12" formArrayName="ingredients">
             <div
               *ngFor="let ingredientCtrl of recipeForm.get('ingredients')['controls']; let i = index"
-                 [formGroupName]="i"
-                 class="row"
-                 style="margin-top: 10px">
+              [formGroupName]="i"
+              class="row"
+              style="margin-top: 10px">
               <div class="col-xs-8">
                 <input
                   type="text"
@@ -79,7 +81,8 @@
                 <button
                   type="button"
                   class="btn btn-danger mat-raised-btn danger"
-                (click)="onDeleteIngredient(i)">X</button>
+                  (click)="onDeleteIngredient(i)">X
+                </button>
               </div>
             </div>
           </div>
@@ -89,7 +92,13 @@
             <button
               type="button"
               class="btn mat-raised-button btn-success"
-              (click)="onAddIngredient()">Add Ingredient</button>
+              (click)="onAddIngredient()">Add Ingredient
+            </button>
+            <button
+              type="button"
+              class="btn mat-raised-button btn-success"
+              (click)="onSaveToDatabase()">Save DB
+            </button>
           </div>
         </div>
       </form>
