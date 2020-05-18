@@ -33,6 +33,8 @@ import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
 import {HomeComponent} from './home/home.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RecipeService} from './recipes/recipe.service';
+import {AuthComponent} from './auth/auth.component';
+import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import {RecipeService} from './recipes/recipe.service';
     RecipeStartComponent,
     RecipeEditComponent,
     HomeComponent,
+    AuthComponent,
+    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,7 @@ import {RecipeService} from './recipes/recipe.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [ShoppingListService, RecipeService],
+  providers: [ShoppingListService, RecipeService, AuthComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

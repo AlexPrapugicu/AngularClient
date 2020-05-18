@@ -40,7 +40,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   onFetchRecipes() {
-    this.dataStorageService.fetchRecipes();
+    this.dataStorageService.fetchRecipes().subscribe();
   }
 
   ngOnDestroy() {

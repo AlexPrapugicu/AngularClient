@@ -82,3 +82,8 @@ input {
 hr{
   border-color: white;
 }
+
+.img-fluid{
+  width: 100%;
+  height: 100%;
+}

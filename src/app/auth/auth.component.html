@@ -1,0 +1,64 @@
+<header>
+  <div class="overlay"></div>
+  <!--  <video preload playsinline autoplay="autoplay" loop="loop" #myVideo>-->
+  <!--    <source-->
+  <!--      src="https://r5-&#45;&#45;sn-4g5ednsr.googlevideo.com/videoplayback?expire=1589841769&ei=CbvCXpnvIZfs4wLisofYBg&ip=59.124.224.180&id=o-AIvynSUn8h6e77EE3Ge5xqYSLhVxUFLtj2fdeNv5liTb&itag=137&aitags=133%2C134%2C135%2C136%2C137%2C160%2C242%2C243%2C244%2C247%2C248%2C271%2C278%2C298%2C299%2C302%2C303%2C308%2C313%2C315&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&gir=yes&clen=54356320&dur=100.367&lmt=1562141271423228&fvip=5&keepalive=yes&c=WEB&txp=2206222&sparams=expire%2Cei%2Cip%2Cid%2Caitags%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRQIhAM66ymqE7F4Kki8dQ0UsiUc0issN7tQgn5qmqXHMLKR3AiBOZG_P6zgI-nO9pY4-Ozz_Q9O1v8uB_LFhdGuQgchevQ%3D%3D&video_id=5md5Yf1vZD0&title=SAMSUNG+DEMO+2019+UHD+4K+-+H%C6%B0%C6%A1ng+v%E1%BB%8B+th%E1%BB%A9c+%C4%83n+v%E1%BB%9Bi+%C4%91%C3%B4i+m%E1%BA%AFt+-+Food+taste+with+your+eyes+vo+van+tv&rm=sn-ipoxu-un5s76&req_id=fc6a1fa9733ca3ee&redirect_counter=2&cm2rm=sn-un5s76&cms_redirect=yes&mh=yv&mip=2a02:2f09:350d:3c00:cc44:4dfa:2468:b560&mm=34&mn=sn-4g5ednsr&ms=ltu&mt=1589820141&mv=m&mvi=4&pl=36&lsparams=mh,mip,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgKYHusBxOlI0QzKqgEOyzxC_voxQfTHjRVyNeXqVa5YwCIDUatfqAF7lHMb4R-bQajIdMJtl03_f9qLs-1orWOYQJ"-->
+  <!--      type="video/mp4"/>-->
+  <!--  </video>-->
+  <img src="https://images.hdqwalls.com/wallpapers/raspberry-good-fruit-plant-4k-um.jpg" alt="" class="img-fluid">
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="row login-form content">
+  <div class="col-xs-12">
+    <div class="alert alert-danger" *ngIf="error">
+      <p>{{error}}</p>
+    </div>
+    <div *ngIf="isLoading" style="text-align: center">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input
+          type="text"
+          id="email"
+          class="form-control"
+          ngModel
+          name="email"
+          required
+          email>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          ngModel
+          name="password"
+          minlength="6">
+      </div>
+      <div class="buttonwrapper">
+        <div>
+          <button
+            class="mat-raised-button btn"
+            type="submit"
+            [disabled]="!authForm.valid"
+          >{{ isLoginMode ? 'Login' : 'Sign Up'}}</button>
+        </div>
+        <div>
+          <button class="mat-raised-button btn" (click)="onSwitch()"
+                  type="button">{{ isLoginMode ? 'Sign Up' : 'Login'}}</button>
+        </div>
+        <!--        <button class="mat-raised-button btn" #myBtn onclick="onPause()" type="button">Pause</button>-->
+      </div>
+    </form>
+  </div>
+</div>
+
