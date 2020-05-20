@@ -7,10 +7,14 @@ import {AuthComponent} from './auth/auth.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+
   authState = false;
 
   constructor(private auth: AuthComponent) {
-    // console.log(this.auth.isLogged);
+  }
+
+  checkState() {
     this.auth.isLogged.subscribe(value => {
       this.authState = value;
     });

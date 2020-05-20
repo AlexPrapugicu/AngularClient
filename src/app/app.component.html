@@ -1,7 +1,8 @@
-<div class="wrapper" *ngIf="authState; else authBlock">
+<div class="wrapper" *ngIf="checkState(); else authBlock">
   <app-main-nav></app-main-nav>
 </div>
 <ng-template #authBlock>
+  <p>{{authState}}</p>
     <app-auth></app-auth>
 </ng-template>
 

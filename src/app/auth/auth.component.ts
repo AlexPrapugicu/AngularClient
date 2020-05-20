@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {Observable, Subject} from 'rxjs';
 import {AuthResponseData, AuthService} from './auth.service';
 import {delay} from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -12,18 +13,21 @@ import {delay} from 'rxjs/operators';
 
 @Injectable()
 export class AuthComponent {
-  public isLogged = new Subject<boolean>();
+
 
   isLoginMode = true;
   isLoading = false;
   logState = false;
   error: string = null;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router: Router) {
   }
 
+  isLogged = new Subject<boolean>();
+
   onLogIn() {
-    this.isLogged.next(this.logState);
+    this.logState = true;
+    return this.isLogged.next(this.logState);
   }
 
   onSwitch() {
@@ -39,17 +43,18 @@ export class AuthComponent {
 
     let authObs: Observable<AuthResponseData>;
     this.isLoading = true;
-    this.logState = true;
     if (this.isLoginMode) {
       authObs = this.authService.login(email, password);
     } else {
       authObs = this.authService.signUp(email, password);
     }
-    authObs.subscribe(respData => {
+    authObs.subscribe(
+      respData => {
         console.log(respData);
         this.isLoading = false;
         this.onLogIn();
-        delay(2500);
+        console.log(this.logState);
+        this.router.navigate(['/home']);
       }
       , errorMessage => {
         console.log(errorMessage);
