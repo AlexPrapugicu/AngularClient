@@ -1,8 +1,7 @@
-import {Component, ElementRef, Injectable, ViewChild} from '@angular/core';
+import {Component, Injectable} from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {Observable} from 'rxjs';
 import {AuthResponseData, AuthService} from './auth.service';
-import {delay} from 'rxjs/operators';
 import {Router} from '@angular/router';
 
 @Component({
@@ -16,7 +15,6 @@ export class AuthComponent {
 
   isLoginMode = true;
   isLoading = false;
-  logState = false;
   error: string = null;
 
   constructor(private authService: AuthService, private router: Router) {
@@ -43,10 +41,7 @@ export class AuthComponent {
     }
     authObs.subscribe(
       respData => {
-        this.logState = true;
         console.log(respData);
-        this.notifyLog();
-        console.log(this.logState);
         this.isLoading = false;
         this.router.navigate(['/home']);
       }
@@ -56,10 +51,6 @@ export class AuthComponent {
         this.isLoading = false;
       });
     form.reset();
-  }
-
-  private notifyLog() {
-    this.authService.onLogIn(this.logState);
   }
 }
 

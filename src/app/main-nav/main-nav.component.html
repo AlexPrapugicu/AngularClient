@@ -1,4 +1,3 @@
-
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav"
                fixedInViewport
@@ -9,10 +8,23 @@
       <img src="https://cdn3.iconfinder.com/data/icons/restaurant-flat-line/70/chicken-512.png" width="50px"
            height="50px">
     </mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item routerLinkActive="active" routerLink="/home">Home</a>
-      <a mat-list-item routerLinkActive="active" routerLink="/recipes">Recipes</a>
-      <a mat-list-item routerLinkActive="active" routerLink="/shopping-list">Shopping List</a>
+    <mat-nav-list>*ngIf="isAuthenticated"
+      <a mat-list-item routerLinkActive="active"
+         routerLink="/home"
+         *ngIf="isAuthenticated">Home
+      </a>
+      <a mat-list-item routerLinkActive="active"
+         routerLink="/recipes"
+         *ngIf="isAuthenticated">Recipes
+      </a>
+      <a mat-list-item routerLinkActive="active"
+         routerLink="/auth"
+         *ngIf="!isAuthenticated">Login
+      </a>
+      <a mat-list-item routerLinkActive="active"
+         routerLink="/shopping-list"
+         *ngIf="isAuthenticated">Shopping List
+      </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -29,8 +41,7 @@
       <mat-icon aria-hidden="false" aria-label="Example home icon">search</mat-icon>
       <span class="example-spacer"></span>
 
-
-      <div class="dropdown">
+      <div class="dropdown" *ngIf="isAuthenticated">
         <button class="btn" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
           <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
@@ -42,13 +53,13 @@
         </div>
       </div>
 
-      <div class="dropdown">
+      <div class="dropdown" *ngIf="isAuthenticated">
         <button class="btn" type="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
           <mat-icon class="example-icon " aria-hidden="false" aria-label="Example person icon">person</mat-icon>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item">Log In</a>
+          <a class="dropdown-item">Log Out</a>
           <a class="dropdown-item">Register</a>
         </div>
       </div>

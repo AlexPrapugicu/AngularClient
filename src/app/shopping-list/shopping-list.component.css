@@ -1,3 +1,7 @@
-.wrapper{
+.wrapper .mat-list-item{
+  color: lightpink;
+}
+
+.mat-subheader{
   color: lightpink;
 }

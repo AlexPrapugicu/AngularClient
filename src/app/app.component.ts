@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthComponent} from './auth/auth.component';
 import {delay} from 'rxjs/operators';
 import {Subscription} from 'rxjs';
@@ -9,18 +9,18 @@ import {AuthService} from './auth/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
 
-  authState: Subscription;
   isAuthenticated = false;
+  private userSub: Subscription;
 
-  constructor(private auth: AuthService) {
-    this.authState = this.auth.getLogStatus().subscribe(value => {
-      this.isAuthenticated = value;
-    });
-
+  constructor(private authService: AuthService) {
   }
 
-
+  ngOnInit() {
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isAuthenticated = !!user;
+    });
+  }
 }

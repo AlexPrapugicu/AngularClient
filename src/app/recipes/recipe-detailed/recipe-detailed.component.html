@@ -1,30 +1,32 @@
-<div class="card" style="width:800px">
-  <img
-    class="card-img-top"
-    [src]="recipe.imagePath"
-    alt="Card image">
-  <div class="card-body">
-    <h4 class="card-title">{{recipe.title}}</h4>
-    <p class="card-text">
-      {{recipe.description}}
-    </p>
-    <hr>
-    <mat-list>
-      <div mat-subheader>Ingredients</div>
-      <mat-list-item *ngFor="let ingredient of recipe.ingredients">
-        <mat-icon mat-list-icon>room_service</mat-icon>
-        <div mat-line>{{ingredient.name}}-{{ingredient.amount}}</div>
-      </mat-list-item>
-    </mat-list>
-    <div class="social">
-      <a (click)="onAddToShoppingList()" style="cursor: pointer" class="btn btn-primary">Shop</a>
-      <a (click)="onEditRecipe()" style="cursor: pointer" class="btn btn-primary">Edit</a>
-      <a (click)="onDeleteRecipe()" style="cursor: pointer" class="btn btn-primary">Delete</a>
-      <a (click)="onClose()" style="cursor: pointer" class="btn btn-primary">X</a>
-      <a class="fa fa-facebook"></a>
-      <a class="fa fa-twitter"></a>
-      <a class="fa fa-instagram"></a>
+<div class="wrapper">
+  <div class="card border">
+    <img
+      style="width: 360px; height: 250px"
+      class="card-img-top img-fluid"
+      [src]="recipe.imagePath"
+      alt="Card image">
+    <div class="card-body">
+      <h4 class="card-title">{{recipe.title}}</h4>
+      <p class="card-text">
+        {{recipe.description}}
+      </p>
+      <hr>
+      <mat-list>
+        <div mat-subheader>Ingredients</div>
+        <mat-list-item *ngFor="let ingredient of recipe.ingredients">
+          <mat-icon mat-list-icon>room_service</mat-icon>
+          <div mat-line>{{ingredient.name}}-{{ingredient.amount}}</div>
+        </mat-list-item>
+      </mat-list>
+      <div class="social listItems">
+        <a (click)="onAddToShoppingList()" style="cursor: pointer" class="btn btn-primary mat-mini-fab">Shop</a>
+        <a (click)="onEditRecipe()" style="cursor: pointer" class="btn btn-primary mat-mini-fab">Edit</a>
+        <a (click)="onDeleteRecipe()" style="cursor: pointer" class="btn btn-primary mat-mini-fab">Delete</a>
+        <a (click)="onClose()" style="cursor: pointer" class="btn btn-primary mat-mini-fab">Close</a>
+        <a class="fa fa-facebook"></a>
+        <a class="fa fa-twitter"></a>
+        <a class="fa fa-instagram"></a>
+      </div>
     </div>
   </div>
 </div>
-

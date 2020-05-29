@@ -1,8 +1,36 @@
+
+.card {
+  background: black;
+  padding: 5px;
+  margin: 5px;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 20vw;
+  object-fit: cover;
+}
 .social {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .fa{
-  font-size: 50px;
+  font-size: 35px;
+  margin-right: 5px;
+}
+.mat-mini-fab{
+  background-color: lightpink;
+  color: black;
+}
+
+.mat-mini-fab:hover{
+  color: black;
+  background-color: beige;
+}
+
+a.btn.btn-primary.mat-mini-fab{
+  font-size: small;
+  margin-right: 5px;
 }

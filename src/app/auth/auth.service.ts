@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';
-import {Observable, Subject, throwError} from 'rxjs';
+import {BehaviorSubject, Observable, Subject, throwError} from 'rxjs';
 import {User} from './user.model';
 
 
@@ -19,21 +19,9 @@ export interface AuthResponseData {
 @Injectable({providedIn: 'root'})
 export class AuthService {
 
-  user = new Subject<User>();
-  logStatusChanged = new Subject<boolean>();
-
-  private logStatus = false;
+  user = new BehaviorSubject<User>(null);
 
   constructor(private http: HttpClient) {
-  }
-
-  onLogIn(status: boolean) {
-    this.logStatus = status;
-    this.logStatusChanged.next(this.logStatus);
-  }
-
-  getLogStatus(): Observable<boolean> {
-    return this.logStatusChanged.asObservable();
   }
 
   signUp(email: string, password: string) {

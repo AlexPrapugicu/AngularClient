@@ -6,31 +6,40 @@ import {map, tap} from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService {
-  constructor(private http: HttpClient, private recipeService: RecipeService) {
-  }
+  constructor(
+    private http: HttpClient,
+    private recipeService: RecipeService
+    ) {}
 
 
   storeRecipe(index: number) {
     const recipe = this.recipeService.getRecipe(index);
-    this.http.post('http://localhost:8080/api/recipes/create', recipe)
+    return this.http.post('http://localhost:8080/api/recipes/create', recipe)
       .subscribe(response => {
         console.log(response);
       });
-    console.log(recipe);
-    console.log(JSON.stringify(recipe));
   }
 
   storeRecipes() {
     const recipes = this.recipeService.getRecipes();
-    this.http.post('http://localhost:8080/api/recipes/create', recipes)
+    const resp = JSON.parse(JSON.stringify(recipes));
+    return this.http
+      .post(
+        'http://localhost:8080/api/recipes/create',
+        resp
+      )
       .subscribe(response => {
         console.log(response);
       });
   }
 
   fetchRecipes() {
-    return this.http.get<Recipe[]>('http://localhost:8080/api/recipes')
-      .pipe(map(recipes => {
+    return this.http
+      .get<Recipe[]>(
+        'http://localhost:8080/api/recipes'
+      )
+      .pipe(
+        map(recipes => {
           return recipes.map(recipe => {
             return {
               ...recipe,
@@ -40,6 +49,7 @@ export class DataStorageService {
         }),
         tap(recipes => {
           this.recipeService.setRecipes(recipes);
-        }));
+        })
+      );
   }
 }

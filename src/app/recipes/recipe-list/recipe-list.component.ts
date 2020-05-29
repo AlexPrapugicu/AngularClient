@@ -13,8 +13,6 @@ import {DataStorageService} from '../../shared/data-storage.service';
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
   subscription: Subscription;
-
-
   constructor(private recipeService: RecipeService,
               private router: Router,
               private route: ActivatedRoute,
